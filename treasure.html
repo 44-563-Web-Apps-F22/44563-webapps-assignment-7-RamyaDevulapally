@@ -94,6 +94,7 @@
         </div>
 
     </div>
+    <button type="button" onclick="resetGame()">GameButton</button>
     <script>
         var ids = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"];
         var chestCount = 0;
@@ -146,7 +147,26 @@
             var scoreA = document.getElementById("score");
             scoreA.innerHTML = ("Score is " + score);
         }
+        // bonus
+        function resetGame() {
+            treasureLocation = Math.floor(Math.random() * 24)
+            while (treasureLocation == 12) {
+                treasureLocation = Math.floor(Math.random() * 24)
+            }
+            chestCount = 0
+            score = 0
+            document.getElementById("chests").innerHTML = "Number of chests checked is zero"
+            document.getElementById("score").innerHTML = "Score is unknown"
+            document.getElementById("help").innerHTML = "Help report"
+            for (let i = 0; i < 24; i++) {
+                if (i != 12) {
+                    document.getElementById(ids[i]).src = "treasurechest.jpg"
+                }
+            }
+        }
+
     </script>
+
 
 </body>
 

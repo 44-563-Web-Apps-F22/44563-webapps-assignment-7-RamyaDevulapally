@@ -11,7 +11,7 @@
   				background-color: #f1f1f1; 
   				margin: 5px;  padding: 20px;  font-size: 30px;
 				font-family: Arial;
-				
+
 			}
 			/* Responsive layout */
 			@media (max-width: 600px) { 
@@ -36,6 +36,7 @@
 		<button onclick="makeNewDiv()">Add Value</button>
 		<button onclick="get()">Get</button>
 		<button onclick="spin()">Spin</button>
+		<button onclick="swap()">Swap</button>
 	</body>
 	<script>
 		function makeNewDiv(){
@@ -67,5 +68,20 @@
 				parentElem.insertBefore(removedItem, parentElem.firstChild);
 			}
 		}
+
+		// bonus
+		function swap() {
+                let cyclerItems = document.getElementsByClassName("cycler")
+                let container = document.getElementById("target")
+                let a = Math.floor(Math.random() * cyclerItems.length)
+                let b = Math.floor(Math.random() * cyclerItems.length)
+                let firstInnerText = document.getElementsByClassName("cycler")[a]
+                let secondInnerText = document.getElementsByClassName("cycler")[b]
+                if(cyclerItems.length > 1) {
+                    let temp = firstInnerText.innerHTML
+                    firstInnerText.innerHTML = secondInnerText.innerHTML
+                    secondInnerText.innerHTML = temp
+                }
+            }
 	</script>
 </html>
